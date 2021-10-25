@@ -2,13 +2,13 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>Google HTML/CSS Style Guide</title>
+<title>Exmaru HTML/CSS Style Guide</title>
 <link rel="stylesheet" href="guide.css">
 <link rel="shortcut icon" href="https://www.google.com/favicon.ico">
 </head>
 <body>
 <div id="content">
-<h1>Google HTML/CSS Style Guide</h1>
+<h1>Exmaru HTML/CSS Style Guide</h1>
 <h2 id="Background">1 목적</h2>
 
 <p>이 문서는 HTML 및 CSS에 대한 형식 및 스타일 규칙을 정의합니다. 
@@ -118,37 +118,24 @@ color: #e5e5e5;
 
 <h2 id="HTML">3 HTML</h2>
 
-<h3 id="HTML_Style_Rules">3.1 HTML Style Rules</h3>
+<h3 id="HTML_Style_Rules">3.1 HTML 스타일 규칙</h3>
 
-<h4 id="Document_Type">3.1.1 Document Type</h4>
+<h4 id="Document_Type">3.1.1 문서 유형</h4>
 
-<p>Use HTML5.</p>
+<p>HTML5를 사용합니다.</p>
 
-<p>HTML5 (HTML syntax) is preferred for all HTML documents: <code>&lt;!DOCTYPE html&gt;</code>.</p>
-
-<p>(It&#8217;s 권장 to use HTML, as <code>text/html</code>. Do not use XHTML. XHTML, as
-<a href="https://hixie.ch/advocacy/xhtml"><code>application/xhtml+xml</code></a>, lacks both browser
-and infrastructure support and offers less room for optimization than HTML.)</p>
-
-<p>Although fine with HTML, do not close void elements, i.e. write <code>&lt;br&gt;</code>, not
+<p>가능한 경우 HTML 싱글 태그의 끝을 닫지 마세요 <code>&lt;br&gt;</code>, not
 <code>&lt;br /&gt;</code>.</p>
 
 <h4 id="HTML_Validity">3.1.2 HTML Validity</h4>
 
-<p>Use valid HTML where possible.</p>
-
-<p>Use valid HTML code unless that is not possible due to otherwise unattainable
-performance goals regarding file size.</p>
-
+<p>가능한 경우 유효한 HTML을 사용하십시오.</p>
 <p>
-
-Use tools such as the <a href="https://validator.w3.org/nu/">W3C HTML validator</a>
-to test.
+<a href="https://validator.w3.org/nu/">W3C HTML 유효성 검사기</a>
+와 같은 도구를 사용 하여 테스트합니다.
 </p>
 
-<p>Using valid HTML is a measurable baseline quality attribute that contributes to
-learning about technical requirements and constraints, and that ensures proper
-HTML usage.</p>
+<p>유효한 HTML을 사용하는 것은 측정 가능한 기준 품질 속성으로 기술 요구 사항 및 제약 조건에 대한 학습에 기여하고 적절한 HTML 사용을 보장합니다.</p>
 
 <pre><code class="language-html prettyprint badcode">&lt;!-- 권장하지않음 --&gt;
 &lt;title&gt;Test&lt;/title&gt;
@@ -162,16 +149,13 @@ HTML usage.</p>
 &lt;article&gt;This is only a test.&lt;/article&gt;
 </code></pre>
 
-<h4 id="Semantics">3.1.3 Semantics</h4>
+<h4 id="Semantics">3.1.3 의미론</h4>
 
-<p>Use HTML according to its purpose.</p>
+<p>목적에 따라 HTML을 사용하십시오.</p>
 
-<p>Use elements (sometimes incorrectly called &#8220;tags&#8221;) for what they have been
-created for. For example, use heading elements for headings, <code>p</code> elements for
-paragraphs, <code>a</code> elements for anchors, etc.</p>
+<p>생성된 목적에 대해 요소를 사용합니다.  예를 들어, 문단에는, <code>p</code> 요소를, 연결은 <code>a</code> 요소를 사용하십시오.</p>
 
-<p>Using HTML according to its purpose is important for accessibility, reuse, and
-code efficiency reasons.</p>
+<p>HTML을 목적에 따라 사용하는 것은 접근성, 재사용 및 코드 효율성을 위해 중요합니다.</p>
 
 <pre><code class="language-html prettyprint badcode">&lt;!-- 권장하지않음 --&gt;
 &lt;div onclick="goToRecommendations();"&gt;All recommendations&lt;/div&gt;
@@ -181,21 +165,16 @@ code efficiency reasons.</p>
 &lt;a href="recommendations/"&gt;All recommendations&lt;/a&gt;
 </code></pre>
 
-<h4 id="Multimedia_Fallback">3.1.4 Multimedia Fallback</h4>
+<h4 id="Multimedia_Fallback">3.1.4  멀티미디어 폴백</h4>
 
-<p>Provide alternative contents for multimedia.</p>
+<p>멀티미디어에 대한 대체 콘텐츠를 제공합니다.</p>
 
-<p>For multimedia, such as images, videos, animated objects via <code>canvas</code>, make sure
-to offer alternative access. For images that means use of meaningful alternative
-text (<code>alt</code>) and for video and audio transcripts and captions, if available.</p>
+<p><card>canvas</code>를 통한 이미지, 비디오, 애니메이션 객체와 같은 멀티미디어의 경우,
+대체 접근 텍스트를 제공할 수 있습니다.<br>
+텍스트(<code>alt</code>)와 비디오 및 오디오 스크립트 및 캡션(사용 가능한 경우)에 사용할 수 있습니다.</p>
 
-<p>Providing alternative contents is important for accessibility reasons: A blind
-user has few cues to tell what an image is about without <code>@alt</code>, and other users
-may have no way of understanding what video or audio contents are about either.</p>
-
-<p>(For images whose <code>alt</code> attributes would introduce redundancy, and for images
-whose purpose is purely decorative which you cannot immediately use CSS for, use
-no alternative text, as in <code>alt=""</code>.)</p>
+<p>시각장애인은 <code>@alt</code> 및 다른 사용자 없이 이미지의 내용을 알려주는 몇 가지 신호를 가지고 있습니다.
+비디오나 오디오 콘텐츠가 무엇에 관한 것인지 이해할 방법이 없을 수도 있습니다다.</p>
 
 <pre><code class="language-html prettyprint badcode">&lt;!-- 권장하지않음 --&gt;
 &lt;img src="spreadsheet.png"&gt;
@@ -205,24 +184,15 @@ no alternative text, as in <code>alt=""</code>.)</p>
 &lt;img src="spreadsheet.png" alt="Spreadsheet screenshot."&gt;
 </code></pre>
 
-<h4 id="Separation_of_Concerns">3.1.5 Separation of Concerns</h4>
+<h4 id="Separation_of_Concerns">3.1.5 파일의 분리</h4>
 
-<p>Separate structure from presentation from behavior.</p>
+<p>불필요하게 많은 파일을 만들지 마세요.</p>
 
-<p>Strictly keep structure (markup), presentation (styling), and behavior
-(scripting) apart, and try to keep the interaction between the three to an
-absolute minimum.</p>
+<p>구조(HTML), 프리젠테이션(Style), 동작(Script)을 엄격하게 분리하고 이 세 가지 간의 상호 작용을 절대 최소로 유지하려고 합니다.</p>
 
-<p>That is, make sure documents and templates contain only HTML and HTML that is
-solely serving structural purposes. Move everything presentational into style
-sheets, and everything behavioral into scripts.</p>
+<p>문서안에 inline 형태로 들어가는 Style이나 Script는 아직 실험적인 경우에만 유지하세요.</p>
 
-<p>In addition, keep the contact area as small as possible by linking as few style
-sheets and scripts as possible from documents and templates.</p>
-
-<p>Separating structure from presentation from behavior is important for
-maintenance reasons. It is always more expensive to change HTML documents and
-templates than it is to update style sheets and scripts.</p>
+<p>작업이 마무리되면 .js 또는 .css 파일 안에 묶어서 배포하며, 역할별로 파일이 나뉘는 경우, minify 를 이용해 최종 배포에서는 통합합니다.</p>
 
 <pre><code class="language-html prettyprint badcode">&lt;!-- 권장하지않음 --&gt;
 &lt;!DOCTYPE html&gt;
@@ -248,16 +218,15 @@ templates than it is to update style sheets and scripts.</p>
 &lt;p&gt;It&#8217;s awesome!
 </code></pre>
 
-<h4 id="Entity_References">3.1.6 Entity References</h4>
+<h4 id="Entity_References">3.1.6 URL 인코팅 형식 사용 자제</h4>
 
-<p>Do not use entity references.</p>
+<p>URL 인코딩 형식을 되도록 사용하지 마세요.</p>
 
-<p>There is no need to use entity references like <code>&amp;mdash;</code>, <code>&amp;rdquo;</code>, or
-<code>&amp;#x263a;</code>, assuming the same encoding (UTF-8) is used for files and editors
-as well as among teams.</p>
+<p>근래의 브라우저는 대부분 URL 인코딩을 따로 하지 않아도 정확하게 이해하고 표현합니다. 
+<code>&amp;mdash;</code>, <code>&amp;rdquo;</code>, <code>&amp;#x263a;</code>, 등 더이상 이런 표현을 직접 사용할 필요가 없습니다.
+</p>
 
-<p>The only exceptions apply to characters with special meaning in HTML (like <code>&lt;</code>
-and <code>&amp;</code>) as well as control or &#8220;invisible&#8221; characters (like no-break spaces).</p>
+<p>유일한 예외는 HTML을 의미하는 (like <code>&lt;</code>과 <code>&amp;</code>), 그리고 &#8220;공백&#8221; 문자입니다.</p>
 
 <pre><code class="language-html prettyprint badcode">&lt;!-- 권장하지않음 --&gt;
 The currency symbol for the Euro is &amp;ldquo;&amp;eur;&amp;rdquo;.
@@ -267,48 +236,10 @@ The currency symbol for the Euro is &amp;ldquo;&amp;eur;&amp;rdquo;.
 The currency symbol for the Euro is &#8220;&#8364;&#8221;.
 </code></pre>
 
-<h4 id="Optional_Tags">3.1.7 Optional Tags</h4>
 
-<p>Omit optional tags (optional).</p>
+<h4 id="type_Attributes">3.1.7 <code>type</code> 속성은 표기하지 마세요.</h4>
 
-<p>For file size optimization and scannability purposes, consider omitting optional
-tags. The <a href="https://html.spec.whatwg.org/multipage/syntax.html#syntax-tag-omission">HTML5 specification</a>
-defines what tags can be omitted.</p>
-
-<p>(This approach may require a grace period to be established as a wider guideline
-as it&#8217;s significantly different from what web developers are typically taught.
-For consistency and simplicity reasons it&#8217;s best served omitting all optional
-tags, not just a selection.)</p>
-
-<pre><code class="language-html prettyprint badcode">&lt;!-- 권장하지않음 --&gt;
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;Spending money, spending bytes&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;p&gt;Sic.&lt;/p&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-
-<pre><code class="language-html prettyprint">&lt;!-- 권장 --&gt;
-&lt;!DOCTYPE html&gt;
-&lt;title&gt;Saving money, saving bytes&lt;/title&gt;
-&lt;p&gt;Qed.
-</code></pre>
-
-<h4 id="type_Attributes">3.1.8 <code>type</code> Attributes</h4>
-
-<p>Omit <code>type</code> attributes for style sheets and scripts.</p>
-
-<p>Do not use <code>type</code> attributes for style sheets (unless not using CSS) and scripts
-(unless not using JavaScript).</p>
-
-<p>Specifying <code>type</code> attributes in these contexts is not necessary as HTML5 implies
-<a href="https://html.spec.whatwg.org/multipage/obsolete.html#attr-style-type"><code>text/css</code></a>
-and <a href="https://html.spec.whatwg.org/multipage/scripting.html#attr-script-type"><code>text/javascript</code></a>
-as defaults. This can be safely done even for older browsers.</p>
+<p>스크립트와 스타일에서 <code>type</code> 속성은 더이상 사용되지 않습니다.</p>
 
 <pre><code class="language-html prettyprint badcode">&lt;!-- 권장하지않음 --&gt;
 &lt;link rel="stylesheet" href="https://www.google.com/css/maia.css"
@@ -328,22 +259,18 @@ as defaults. This can be safely done even for older browsers.</p>
 &lt;script src="https://www.google.com/js/gweb/analytics/autotrack.js"&gt;&lt;/script&gt;
 </code></pre>
 
-<h3 id="HTML_Formatting_Rules">3.2 HTML Formatting Rules</h3>
+<h3 id="HTML_Formatting_Rules">3.2 HTML 형식 규칙</h3>
 
-<h4 id="General_Formatting">3.2.1 General Formatting</h4>
+<h4 id="General_Formatting">3.2.1 일반 서식</h4>
 
-<p>Use a new line for every block, list, or table element, and indent every such
-child element.</p>
+<p>모든 블록, 목록 또는 테이블 요소에 새 줄을 사용하고 이러한 모든 자식 요소를 들여씁니다.</p>
 
-<p>Independent of the styling of an element (as CSS allows elements to assume a
-different role per <code>display</code> property), put every block, list, or table element
-on a new line.</p>
+<p>요소의 스타일 지정과는 별개로(CSS에서는 요소가 
+<code>display</code> 속성 별로 다른 역할을 맡을 수 있으므로 ) 모든 블록, 목록 또는 테이블 요소를 새 줄에 넣습니다.</p>
 
-<p>Also, indent them if they are child elements of a block, list, or table element.</p>
+<p>또한 블록, 목록 또는 테이블 요소의 자식 요소인 경우 들여쓰기합니다.</p>
 
-<p>(If you run into issues around whitespace between list items it&#8217;s acceptable to
-put all <code>li</code> elements in one line. A linter is encouraged to throw a warning
-instead of an error.)</p>
+<p>(목록 항목 사이의 공백 문제가 발생하면 모든 &#8217;요소를 한 줄 에 넣어도 됩니다. 오류 대신 경고를 표시하는 것이 좋습니다.</p>
 
 <pre><code class="language-html prettyprint">&lt;blockquote&gt;
   &lt;p&gt;&lt;em&gt;Space&lt;/em&gt;, the final frontier.&lt;/p&gt;
@@ -369,41 +296,19 @@ instead of an error.)</p>
 &lt;/table&gt;
 </code></pre>
 
-<h4 id="HTML_Line-Wrapping">3.2.2 HTML Line-Wrapping</h4>
+<h4 id="HTML_Line-Wrapping">3.2.2 HTML 줄 바꿈</h4>
 
-<p>Break long lines (optional).</p>
+<p>긴 줄을 끊습니다(선택 사항).</p>
 
-<p>While there is no column limit recommendation for HTML, you may consider
-wrapping long lines if it significantly improves readability.</p>
+<p>HTML에 대한 열 제한 권장 사항은 없지만 가독성이 크게 향상되면 긴 줄을 줄 바꿈하는 것을 고려할 수 있습니다.</p>
 
-<p>When line-wrapping, each continuation line should be indented at least 4
-additional spaces from the original line.</p>
+<p>줄 바꿈할 때 각 연속 줄은 원래 줄에서 최소 4칸 더 들여쓰기해야 합니다.</p>
 
-<pre><code class="language-html prettyprint">&lt;md-progress-circular md-mode="indeterminate" class="md-accent"
-    ng-show="ctrl.loading" md-diameter="35"&gt;
-&lt;/md-progress-circular&gt;
-</code></pre>
+<h4 id="HTML_Quotation_Marks">3.2.3 HTML 따옴표</h4>
 
-<pre><code class="language-html prettyprint">&lt;md-progress-circular
-    md-mode="indeterminate"
-    class="md-accent"
-    ng-show="ctrl.loading"
-    md-diameter="35"&gt;
-&lt;/md-progress-circular&gt;
-</code></pre>
+<p>속성 값을 인용할 때 큰따옴표를 사용하십시오.</p>
 
-<pre><code class="language-html prettyprint">&lt;md-progress-circular md-mode="indeterminate"
-                      class="md-accent"
-                      ng-show="ctrl.loading"
-                      md-diameter="35"&gt;
-&lt;/md-progress-circular&gt;
-</code></pre>
-
-<h4 id="HTML_Quotation_Marks">3.2.3 HTML Quotation Marks</h4>
-
-<p>When quoting attributes values, use double quotation marks.</p>
-
-<p>Use double (<code>""</code>) rather than single quotation marks (<code>''</code>) around attribute
+<p>속성값 (<code>""</code>) rather than single quotation marks (<code>''</code>) around attribute
 values.</p>
 
 <pre><code class="language-html prettyprint badcode">&lt;!-- 권장하지않음 --&gt;
@@ -416,40 +321,27 @@ values.</p>
 
 <h2 id="CSS">4 CSS</h2>
 
-<h3 id="CSS_Style_Rules">4.1 CSS Style Rules</h3>
+<h3 id="CSS_Style_Rules">4.1 CSS 스타일 규칙</h3>
 
-<h4 id="CSS_Validity">4.1.1 CSS Validity</h4>
+<h4 id="CSS_Validity">4.1.1 CSS 유효성</h4>
 
-<p>Use valid CSS where possible.</p>
+<p>가능한 경우 유효한 CSS를 사용하십시오.</p>
 
-<p>Unless dealing with CSS validator bugs or requiring proprietary syntax, use
-valid CSS code.</p>
-
-<p>
-
-Use tools such as the <a href="https://jigsaw.w3.org/css-validator/">W3C CSS validator</a>
-to test.
+<a href="https://jigsaw.w3.org/css-validator/">W3C CSS validator</a>
+와 같은 도구를 사용 하여 테스트합니다.
 </p>
 
-<p>Using valid CSS is a measurable baseline quality attribute that allows to spot
-CSS code that may not have any effect and can be removed, and that ensures
-proper CSS usage.</p>
+<h4 id="ID_and_Class_Naming">4.1.2 ID 및 클래스 이름 지정</h4>
 
-<h4 id="ID_and_Class_Naming">4.1.2 ID and Class Naming</h4>
+<p>의미 있는 또는 일반 ID 및 클래스 이름을 사용하십시오.</p>
 
-<p>Use meaningful or generic ID and class names.</p>
+<p>표현적이거나 비밀스러운 이름 대신 항상 문제의 요소의 목적을 반영하거나 일반적인 경우 ID와 클래스 이름을 사용하십시오.</p>
 
-<p>Instead of presentational or cryptic names, always use ID and class names that
-reflect the purpose of the element in question, or that are otherwise generic.</p>
+<p>구체적이고 요소의 목적을 반영하는 이름은 가장 이해하기 쉽고 변경될 가능성이 가장 적기 때문에 선호해야 합니다.</p>
 
-<p>Names that are specific and reflect the purpose of the element should be
-preferred as these are most understandable and the least likely to change.</p>
+<p>일반 이름은 단순히 형제와 다른 의미가 없거나 특별한 의미가 없는 요소에 대한 대체입니다. 그들은 일반적으로 &#8220;helpers.&#8221;로 표기합니다.</p>
 
-<p>Generic names are simply a fallback for elements that have no particular or no
-meaning different from their siblings. They are typically needed as &#8220;helpers.&#8221;</p>
-
-<p>Using functional or generic names reduces the probability of unnecessary
-document or template changes.</p>
+<p>스크립트 명칭을 동일하게 사용하지 마세요.</p>
 
 <pre><code class="language-css prettyprint badcode">/* 권장하지않음: meaningless */
 #yee-1901 {}
@@ -469,14 +361,13 @@ document or template changes.</p>
 .alt {}
 </code></pre>
 
-<h4 id="ID_and_Class_Name_Style">4.1.3 ID and Class Name Style</h4>
+<h4 id="ID_and_Class_Name_Style">4.1.3 ID 및 클래스 이름 스타일</h4>
 
-<p>Use ID and class names that are as short as possible but as long as necessary.</p>
+<p>ID와 클래스 이름은 가능한 한 짧지만 필요한 만큼 사용하십시오.</p>
 
-<p>Try to convey what an ID or class is about while being as brief as possible.</p>
+<p>ID나 클래스가 무엇인지 최대한 간략하게 전달하십시오.</p>
 
-<p>Using ID and class names this way contributes to acceptable levels of
-understandability and code efficiency.</p>
+<p>이러한 방식으로 ID와 클래스 이름을 사용하면 수용 가능한 수준의 이해도와 코드 효율성에 기여합니다.</p>
 
 <pre><code class="language-css prettyprint badcode">/* 권장하지않음 */
 #navigation {}
@@ -490,12 +381,11 @@ understandability and code efficiency.</p>
 
 <h4 id="Type_Selectors">4.1.4 Type Selectors</h4>
 
-<p>Avoid qualifying ID and class names with type selectors.</p>
+<p>type selectors로 ID 및 클래스 이름을 한정하지 마십시오.</p>
 
-<p>Unless necessary (for example with helper classes), do not use element names in
-conjunction with IDs or classes.</p>
+<p>필요한 경우가 아니면(예: 도우미 클래스) ID 또는 클래스와 함께 요소 이름을 사용하지 마십시오.</p>
 
-<p>Avoiding unnecessary ancestor selectors is useful for <a href="http://www.stevesouders.com/blog/2009/06/18/simplifying-css-selectors/">performance reasons</a>.</p>
+<p>불필요한 조상 선택자를 피하는 것은 성능상의 이유로 유용합니다. 다음을 참고하세요. <a href="http://www.stevesouders.com/blog/2009/06/18/simplifying-css-selectors/">CSS성능</a>.</p>
 
 <pre><code class="language-css prettyprint badcode">/* 권장하지않음 */
 ul#example {}
@@ -507,15 +397,14 @@ div.error {}
 .error {}
 </code></pre>
 
-<h4 id="Shorthand_Properties">4.1.5 Shorthand Properties</h4>
+<h4 id="Shorthand_Properties">4.1.5 약식 속성</h4>
 
-<p>Use shorthand properties where possible.</p>
+<p>가능한 경우 약식 속성을 사용하십시오.</p>
 
-<p>CSS offers a variety of <a href="https://www.w3.org/TR/CSS21/about.html#shorthand">shorthand</a>
-properties (like <code>font</code>) that should be used whenever possible, even in cases
-where only one value is explicitly set.</p>
+<p>CSS는 단 하나의 값만 명시적으로 설정된 경우에도 가능한한 다양한 <a href="https://www.w3.org/TR/CSS21/about.html#shorthand">약식</a>
+속성 (예 <code>font</code>)을 제공합니다.</p>
 
-<p>Using shorthand properties is useful for code efficiency and understandability.</p>
+<p>약식 속성을 사용하면 코드 효율성과 이해도에 유용합니다.</p>
 
 <pre><code class="language-css prettyprint badcode">/* 권장하지않음 */
 border-top-style: none;
@@ -534,11 +423,11 @@ font: 100%/1.6 palatino, georgia, serif;
 padding: 0 1em 2em;
 </code></pre>
 
-<h4 id="0_and_Units">4.1.6 0 and Units</h4>
+<h4 id="0_and_Units">4.1.6 0과 단위</h4>
 
-<p>Omit unit specification after &#8220;0&#8221; values, unless required.</p>
+<p>필요한 경우가 아니면 &#8220;0&#8221; 값 뒤에 단위 지정을 생략합니다.</p>
 
-<p>Do not use units after <code>0</code> values unless they are required.</p>
+<p><code>0</code> 필요한 경우가 아니면 값 뒤에 단위를 사용하지 마십시오.</p>
 
 <pre><code class="language-css prettyprint">flex: 0px; /* This flex-basis component requires a unit. */
 flex: 1 1 0px; /* Not ambiguous without the unit, but needed in IE11. */
@@ -546,21 +435,18 @@ margin: 0;
 padding: 0;
 </code></pre>
 
-<h4 id="Leading_0s">4.1.7 Leading 0s</h4>
+<h4 id="Leading_0s">4.1.7 선행 0</h4>
 
-<p>Omit leading &#8220;0&#8221;s in values.</p>
-
-<p>Do not put <code>0</code>s in front of values or lengths between -1 and 1.</p>
+<p>값에서 선행 &#8220;0&#8221;을 생략합니다.</p>
 
 <pre><code class="language-css prettyprint">font-size: .8em;
 </code></pre>
 
-<h4 id="Hexadecimal_Notation">4.1.8 Hexadecimal Notation</h4>
+<h4 id="Hexadecimal_Notation">4.1.8 16진수 표기법</h4>
 
-<p>Use 3 character hexadecimal notation where possible.</p>
+<p>가능하면 3자의 16진수 표기법을 사용하십시오.</p>
 
-<p>For color values that permit it, 3 character hexadecimal notation is shorter and
-more succinct.</p>
+<p>허용하는 색상 값의 경우 3자 16진수 표기법이 더 짧고 간결합니다.</p>
 
 <pre><code class="language-css prettyprint badcode">/* 권장하지않음 */
 color: #eebbcc;
@@ -570,28 +456,23 @@ color: #eebbcc;
 color: #ebc;
 </code></pre>
 
-<h4 id="Prefixes">4.1.9 Prefixes</h4>
+<h4 id="Prefixes">4.1.9 접두사</h4>
 
-<p>Prefix selectors with an application-specific prefix (optional).</p>
+<p>프로젝트별로 고유한 접두사를 사용하세요. (선택사항)</p>
 
-<p>In large projects as well as for code that gets embedded in other projects or on
-external sites use prefixes (as namespaces) for ID and class names. Use short,
-unique identifiers followed by a dash.</p>
+<p>대규모 프로젝트와 다른 프로젝트 또는 외부 사이트에 포함된 코드의 경우 ID 및 클래스 이름에 접두사(네임스페이스로)를 사용합니다. 짧고 고유한 식별자 뒤에 대시를 사용하세요.</p>
 
-<p>Using namespaces helps preventing naming conflicts and can make maintenance
-easier, for example in search and replace operations.</p>
+<p>네임스페이스를 사용하면 이름 충돌을 방지하고 검색 및 바꾸기 작업과 같은 유지 관리를 더 쉽게 할 수 있습니다.</p>
 
 <pre><code class="language-css prettyprint">.adw-help {} /* AdWords */
 #maia-note {} /* Maia */
 </code></pre>
 
-<h4 id="ID_and_Class_Name_Delimiters">4.1.10 ID and Class Name Delimiters</h4>
+<h4 id="ID_and_Class_Name_Delimiters">4.1.10 ID 및 클래스 이름 구분 기호</h4>
 
-<p>Separate words in ID and class names by a hyphen.</p>
+<p>ID와 클래스 이름의 단어는 하이픈으로 구분합니다.</p>
 
-<p>Do not concatenate words and abbreviations in selectors by any characters
-(including none at all) other than hyphens, in order to improve understanding
-and scannability.</p>
+<p>이해와 가독성을 높이기 위해 선택기에서 단어와 약어를 하이픈 이외의 문자(전혀 없는 경우 포함)로 연결하지 마십시오.</p>
 
 <pre><code class="language-css prettyprint badcode">/* 권장하지않음: does not separate the words &#8220;demo&#8221; and &#8220;image&#8221; */
 .demoimage {}
@@ -605,32 +486,15 @@ and scannability.</p>
 .ads-sample {}
 </code></pre>
 
-<h4 id="Hacks">4.1.11 Hacks</h4>
+<h3 id="CSS_Formatting_Rules">4.2 CSS 서식 규칙</h3>
 
-<p>Avoid user agent detection as well as CSS &#8220;hacks&#8221;&#8212;try a different approach
-first.</p>
+<h4 id="Declaration_Order">4.2.1 선언 순서</h4>
 
-<p>It&#8217;s tempting to address styling differences over user agent detection or
-special CSS filters, workarounds, and hacks. Both approaches should be
-considered last resort in order to achieve and maintain an efficient and
-manageable code base. Put another way, giving detection and hacks a free pass
-will hurt projects in the long run as projects tend to take the way of least
-resistance. That is, allowing and making it easy to use detection and hacks
-means using detection and hacks more frequently&#8212;and more frequently is too
-frequently.</p>
+<p>선언을 알파벳순으로 만듭니다.</p>
 
-<h3 id="CSS_Formatting_Rules">4.2 CSS Formatting Rules</h3>
+<p>기억하고 유지하기 쉬운 방식으로 일관된 코드를 달성하기 위해 선언을 알파벳 순서로 배치하십시오.</p>
 
-<h4 id="Declaration_Order">4.2.1 Declaration Order</h4>
-
-<p>Alphabetize declarations.</p>
-
-<p>Put declarations in alphabetical order in order to achieve consistent code in a
-way that is easy to remember and maintain.</p>
-
-<p>Ignore vendor-specific prefixes for sorting purposes. However, multiple
-vendor-specific prefixes for a certain CSS property should be kept sorted (e.g.
--moz prefix comes before -webkit).</p>
+<p>정렬을 위해 공급업체별 접두사는 무시합니다. 그러나 특정 CSS 속성에 대한 여러 공급업체별 접두사는 정렬된 상태로 유지해야 합니다(예: -moz 접두사가 -webkit 앞에 옴).</p>
 
 <pre><code class="language-css prettyprint">background: fuchsia;
 border: 1px solid;
@@ -642,13 +506,9 @@ text-align: center;
 text-indent: 2em;
 </code></pre>
 
-<h4 id="Block_Content_Indentation">4.2.2 Block Content Indentation</h4>
+<h4 id="Block_Content_Indentation">4.2.2 콘텐츠 들여쓰기 차단</h4>
 
-<p>Indent all block content.</p>
-
-<p>Indent all <a href="https://www.w3.org/TR/CSS21/syndata.html#block">block content</a>,
-that is rules within rules as well as declarations, so to reflect hierarchy and
-improve understanding.</p>
+<p>모든 블록 콘텐츠를 들여씁니다.</p>
 
 <pre><code class="language-css prettyprint">@media screen, projection {
 
@@ -660,12 +520,11 @@ improve understanding.</p>
 }
 </code></pre>
 
-<h4 id="Declaration_Stops">4.2.3 Declaration Stops</h4>
+<h4 id="Declaration_Stops">4.2.3 선언 종료</h4>
 
-<p>Use a semicolon after every declaration.</p>
+<p>모든 선언 뒤에 세미콜론을 사용하십시오.</p>
 
-<p>End every declaration with a semicolon for consistency and extensibility
-reasons.</p>
+<p>일관성과 확장성을 위해 모든 선언을 세미콜론으로 끝내십시오.</p>
 
 <pre><code class="language-css prettyprint badcode">/* 권장하지않음 */
 .test {
@@ -681,12 +540,11 @@ reasons.</p>
 }
 </code></pre>
 
-<h4 id="Property_Name_Stops">4.2.4 Property Name Stops</h4>
+<h4 id="Property_Name_Stops">4.2.4 속성 이름 종료</h4>
 
-<p>Use a space after a property name&#8217;s colon.</p>
+<p>속성 이름의 콜론 뒤에 &#8217;을 사용하십시오.</p>
 
-<p>Always use a single space between property and value (but no space between
-property and colon) for consistency reasons.</p>
+<p>일관성을 위해 항상 속성과 값 사이에 공백을 하나만 사용합니다(속성과 콜론 사이에는 공백 없음).</p>
 
 <pre><code class="language-css prettyprint badcode">/* 권장하지않음 */
 h3 {
@@ -700,15 +558,13 @@ h3 {
 }
 </code></pre>
 
-<h4 id="Declaration_Block_Separation">4.2.5 Declaration Block Separation</h4>
+<h4 id="Declaration_Block_Separation">4.2.5 선언 블록 분리</h4>
 
-<p>Use a space between the last selector and the declaration block.</p>
+<p>마지막 선택자와 선언 블록 사이에 공백을 사용하십시오.</p>
 
-<p>Always use a single space between the last selector and the opening brace that
-begins the <a href="https://www.w3.org/TR/CSS21/syndata.html#rule-sets">declaration block</a>.</p>
+<p>마지막 선택자와 선언 블록 을 시작하는 여는 중괄호 사이에는 항상 공백 하나를 사용하십시오 .</p>
 
-<p>The opening brace should be on the same line as the last selector in a given
-rule.</p>
+<p>여는 중괄호는 주어진 규칙의 마지막 선택자와 같은 줄에 있어야 합니다.</p>
 
 <pre><code class="language-css prettyprint badcode">/* 권장하지않음: missing space */
 #video{
@@ -728,11 +584,11 @@ rule.</p>
 }
 </code></pre>
 
-<h4 id="Selector_and_Declaration_Separation">4.2.6 Selector and Declaration Separation</h4>
+<h4 id="Selector_and_Declaration_Separation">4.2.6 선택자와 선언 분리</h4>
 
-<p>Separate selectors and declarations by new lines.</p>
+<p>새 줄로 선택자와 선언을 구분합니다.</p>
 
-<p>Always start a new line for each selector and declaration.</p>
+<p>각 선택자와 선언에 대해 항상 새 줄을 시작합니다.</p>
 
 <pre><code class="language-css prettyprint badcode">/* 권장하지않음 */
 a:focus, a:active {
@@ -749,11 +605,11 @@ h3 {
 }
 </code></pre>
 
-<h4 id="Rule_Separation">4.2.7 Rule Separation</h4>
+<h4 id="Rule_Separation">4.2.7 규칙 분리</h4>
 
-<p>Separate rules by new lines.</p>
+<p>새 줄로 규칙을 구분합니다.</p>
 
-<p>Always put a blank line (two line breaks) between rules.</p>
+<p>규칙 사이에는 항상 빈 줄(두 줄 바꿈)을 넣으십시오.</p>
 
 <pre><code class="language-css prettyprint">html {
   background: #fff;
@@ -765,15 +621,14 @@ body {
 }
 </code></pre>
 
-<h4 id="CSS_Quotation_Marks">4.2.8 CSS Quotation Marks</h4>
+<h4 id="CSS_Quotation_Marks">4.2.8 CSS 따옴표</h4>
 
-<p>Use single (<code>''</code>) rather than double (<code>""</code>) quotation marks for attribute
-selectors and property values.</p>
+<p>속성 선택기 및 속성 값에 큰따옴표(<code>""</code>)대신 작은따옴표(<code>''</code>)를 씁니다.</p>
 
-<p>Do not use quotation marks in URI values (<code>url()</code>).</p>
+<p>URL값에는 따옴표를 사용하지 마세요. (<code>url()</code>).</p>
 
-<p>Exception: If you do need to use the <code>@charset</code> rule, use double quotation
-marks&#8212;<a href="https://www.w3.org/TR/CSS21/syndata.html#charset">single quotation marks are not permitted</a>.</p>
+<p>예외: <code>@charset</code>을 사용하는 경우에는 큰 따옴표를 사용하세요.
+<a href="https://www.w3.org/TR/CSS21/syndata.html#charset">작은 따옴표는 허용되지 않습니다.</a>.</p>
 
 <pre><code class="language-css prettyprint badcode">/* 권장하지않음 */
 @import url("https://www.google.com/css/maia.css");
@@ -791,14 +646,13 @@ html {
 }
 </code></pre>
 
-<h3 id="CSS_Meta_Rules">4.3 CSS Meta Rules</h3>
+<h3 id="CSS_Meta_Rules">4.3 CSS 메타 규칙</h3>
 
-<h4 id="Section_Comments">4.3.1 Section Comments</h4>
+<h4 id="Section_Comments">4.3.1 섹션 주석</h4>
 
-<p>Group sections by a section comment (optional).</p>
+<p>섹션 주석으로 섹션을 그룹화합니다(선택 사항).</p>
 
-<p>If possible, group style sheet sections together by using comments. Separate
-sections with new lines.</p>
+<p>가능하면 주석을 사용하여 스타일 시트 섹션을 그룹화하십시오. 새 줄로 섹션을 구분합니다.</p>
 
 <pre><code class="language-css prettyprint">/* Header */
 
@@ -813,21 +667,6 @@ sections with new lines.</p>
 .adw-gallery {}
 </code></pre>
 
-<h2 id="Parting_Words">Parting Words</h2>
-
-<p><em>Be consistent.</em></p>
-
-<p>If you&#8217;re editing code, take a few minutes to look at the code around you and
-determine its style. If they use spaces around all their arithmetic operators,
-you should too. If their comments have little boxes of hash marks around them,
-make your comments have little boxes of hash marks around them too.</p>
-
-<p>The point of having style guidelines is to have a common vocabulary of coding so
-people can concentrate on what you&#8217;re saying rather than on how you&#8217;re saying
-it. We present global style rules here so people know the vocabulary, but local
-style is also important. If code you add to a file looks drastically different
-from the existing code around it, it throws readers out of their rhythm when
-they go to read it. Avoid this.</p>
 </div>
 </body>
 </html>
