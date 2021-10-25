@@ -570,3 +570,8 @@ li.toc_entry a {
 .toc td.two_columns {
   border-width: 0px;
 }
+
+/* 이엑스마루 추가 */
+pre > code {
+  white-space: pre;
+}
