@@ -9,55 +9,51 @@
 <body>
 <div id="content">
 <h1>Google HTML/CSS Style Guide</h1>
-<h2 id="Background">1 Background</h2>
+<h2 id="Background">1 목적</h2>
 
-<p>This document defines formatting and style rules for HTML and CSS. It aims at
-improving collaboration, code quality, and enabling supporting infrastructure.
-It applies to raw, working files that use HTML and CSS, including GSS files.
-Tools are free to obfuscate, minify, and compile as long as the general code
-quality is maintained.</p>
+<p>이 문서는 HTML 및 CSS에 대한 형식 및 스타일 규칙을 정의합니다. 
+협업, 코드 품질을 개선하고 지원 인프라를 활성화하는 것을 목표로 합니다. 
+SCSS 파일을 포함하여 HTML 및 CSS를 사용하는 원시 작업 파일에 적용됩니다.</p>
 
-<h2 id="General">2 General</h2>
+<h2 id="General">2 일반</h2>
 
-<h3 id="General_Style_Rules">2.1 General Style Rules</h3>
+<h3 id="General_Style_Rules">2.1 일반 스타일 규칙</h3>
 
-<h4 id="Protocol">2.1.1 Protocol</h4>
+<h4 id="Protocol">2.1.1 프로토콜</h4>
 
-<p>Use HTTPS for embedded resources where possible.</p>
+<p>가능한 경우 포함된 리소스에 HTTP 및 HTTPS를 생략합니다.</p>
 
-<p>Always use HTTPS (<code>https:</code>) for images and other media
-files, style sheets, and scripts, unless the respective files are not available
-over HTTPS.</p>
+<p>HTTPS만 접근이 가능한 경우를 제외하고 <code>//(domain)</code>로 시작하십시오.</p>
 
-<pre><code class="language-html prettyprint badcode">&lt;!-- Not recommended: omits the protocol --&gt;
-&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"&gt;&lt;/script&gt;
+<pre><code class="language-html prettyprint badcode">&lt;!-- 권장하지않음 --&gt;
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"&gt;&lt;/script&gt;
 
-&lt;!-- Not recommended: uses HTTP --&gt;
+&lt;!-- 권장하지않음: uses HTTP --&gt;
 &lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"&gt;&lt;/script&gt;
 </code></pre>
 
-<pre><code class="language-html prettyprint">&lt;!-- Recommended --&gt;
-&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"&gt;&lt;/script&gt;
+<pre><code class="language-html prettyprint">&lt;!-- 권장 --&gt;
+&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"&gt;&lt;/script&gt;
 </code></pre>
 
-<pre><code class="language-css prettyprint badcode">/* Not recommended: omits the protocol */
-@import '//fonts.googleapis.com/css?family=Open+Sans';
+<pre><code class="language-css prettyprint badcode">/* 권장하지않음 */
+@import 'https://fonts.googleapis.com/css?family=Open+Sans';
 
-/* Not recommended: uses HTTP */
+/* 권장하지않음: uses HTTP */
 @import 'http://fonts.googleapis.com/css?family=Open+Sans';
 </code></pre>
 
-<pre><code class="language-css prettyprint">/* Recommended */
-@import 'https://fonts.googleapis.com/css?family=Open+Sans';
+<pre><code class="language-css prettyprint">/* 권장 */
+@import '//fonts.googleapis.com/css?family=Open+Sans';
 </code></pre>
 
-<h3 id="General_Formatting_Rules">2.2 General Formatting Rules</h3>
+<h3 id="General_Formatting_Rules">2.2 일반 서식 규칙</h3>
 
-<h4 id="Indentation">2.2.1 Indentation</h4>
+<h4 id="Indentation">2.2.1 들여쓰기</h4>
 
-<p>Indent by 2 spaces at a time.</p>
+<p>한 번에 2칸 들여쓰기.</p>
 
-<p>Don&#8217;t use tabs or mix tabs and spaces for indentation.</p>
+<p>Don&#8217;t 들여쓰기를 위해 탭을 사용하거나 탭과 공백을 혼합하지 마십시오.</p>
 
 <pre><code class="language-html prettyprint">&lt;ul&gt;
   &lt;li&gt;Fantastic
@@ -70,93 +66,55 @@ over HTTPS.</p>
 }
 </code></pre>
 
-<h4 id="Capitalization">2.2.2 Capitalization</h4>
+<h4 id="Capitalization">2.2.2 영문자 사용</h4>
 
-<p>Use only lowercase.</p>
+<p>소문자만 사용하십시오.</p>
 
-<p>All code has to be lowercase: This applies to HTML element names, attributes,
-attribute values (unless <code>text/CDATA</code>), CSS selectors, properties, and property
-values (with the exception of strings).</p>
+<p>모든 코드는 소문자여야 합니다. 이것은 HTML 요소 이름, 속성, 속성 값, CSS 선택기, 속성 및 속성 값(문자열 제외)에 적용됩니다.</p>
 
-<pre><code class="language-html prettyprint badcode">&lt;!-- Not recommended --&gt;
+<pre><code class="language-html prettyprint badcode">&lt;!-- 권장하지않음 --&gt;
 &lt;A HREF="/"&gt;Home&lt;/A&gt;
 </code></pre>
 
-<pre><code class="language-html prettyprint">&lt;!-- Recommended --&gt;
+<pre><code class="language-html prettyprint">&lt;!-- 권장 --&gt;
 &lt;img src="google.png" alt="Google"&gt;
 </code></pre>
 
-<pre><code class="language-css prettyprint badcode">/* Not recommended */
+<pre><code class="language-css prettyprint badcode">/* 권장하지않음 */
 color: #E5E5E5;
 </code></pre>
 
-<pre><code class="language-css prettyprint">/* Recommended */
+<pre><code class="language-css prettyprint">/* 권장 */
 color: #e5e5e5;
 </code></pre>
 
-<h4 id="Trailing_Whitespace">2.2.3 Trailing Whitespace</h4>
+<h4 id="Trailing_Whitespace">2.2.3 후행 공백</h4>
 
-<p>Remove trailing white spaces.</p>
+<p>후행 공백을 제거하십시오.</p>
 
-<p>Trailing white spaces are unnecessary and can complicate diffs.</p>
+<p>후행 공백은 불필요하며 diff를 복잡하게 만들 수 있습니다.</p>
 
-<pre><code class="language-html prettyprint badcode">&lt;!-- Not recommended --&gt;
+<pre><code class="language-html prettyprint badcode">&lt;!-- 권장하지않음 --&gt;
 &lt;p&gt;What?_
 </code></pre>
 
-<pre><code class="language-html prettyprint">&lt;!-- Recommended --&gt;
+<pre><code class="language-html prettyprint">&lt;!-- 권장 --&gt;
 &lt;p&gt;Yes please.
 </code></pre>
 
-<h3 id="General_Meta_Rules">2.3 General Meta Rules</h3>
+<h3 id="General_Meta_Rules">2.3 일반 메타 규칙</h3>
 
-<h4 id="Encoding">2.3.1 Encoding</h4>
+<h4 id="Encoding">2.3.1 인코딩</h4>
 
-<p>Use UTF-8 (no BOM).</p>
+<p>기본적으로 UTF-8 (no BOM)을 사용하세요.</p>
 
-<p>Make sure your editor uses UTF-8 as character encoding, without a byte order
-mark.</p>
+<p>편집기가 바이트 순서 표시 없이 UTF-8을 문자 인코딩으로 사용하는지 확인하십시오.</p>
 
-<p>Specify the encoding in HTML templates and documents via <code>&lt;meta
-charset="utf-8"&gt;</code>. Do not specify the encoding of style sheets as these assume
-UTF-8.</p>
+<h4 id="Comments">2.3.2 코멘트</h4>
 
-<p>(More on encodings and when and how to specify them can be found in <a href="https://www.w3.org/International/tutorials/tutorial-char-enc/">Handling
-character encodings in HTML and CSS</a>.)</p>
+<p>가능한 경우 필요에 따라 코드를 설명합니다.</p>
 
-<h4 id="Comments">2.3.2 Comments</h4>
-
-<p>Explain code as needed, where possible.</p>
-
-<p>Use comments to explain code: What does it cover, what purpose does it serve,
-why is respective solution used or preferred?</p>
-
-<p>(This item is optional as it is not deemed a realistic expectation to always
-demand fully documented code. Mileage may vary heavily for HTML and CSS code and
-depends on the project&#8217;s complexity.)</p>
-
-<h4 id="Action_Items">2.3.3 Action Items</h4>
-
-<p>Mark todos and action items with <code>TODO</code>.</p>
-
-<p>Highlight todos by using the keyword <code>TODO</code> only, not other common formats like
-<code>@@</code>.</p>
-
-<p>Append a contact (username or mailing list) in parentheses as with the format
-<code>TODO(contact)</code>.</p>
-
-<p>Append action items after a colon as in <code>TODO: action item</code>.</p>
-
-<pre><code class="language-django prettyprint external">{# TODO(john.doe): revisit centering #}
-&lt;center&gt;Test&lt;/center&gt;
-</code></pre>
-
-<pre><code class="language-html prettyprint">&lt;!-- TODO: remove optional tags --&gt;
-&lt;ul&gt;
-  &lt;li&gt;Apples&lt;/li&gt;
-  &lt;li&gt;Oranges&lt;/li&gt;
-&lt;/ul&gt;
-</code></pre>
+<p>주석을 사용하여 코드를 설명하십시오. 코드는 무엇을 다루고, 어떤 목적을 수행하며, 각 솔루션이 사용되거나 선호되는 이유는 무엇입니까?</p>
 
 <h2 id="HTML">3 HTML</h2>
 
@@ -168,7 +126,7 @@ depends on the project&#8217;s complexity.)</p>
 
 <p>HTML5 (HTML syntax) is preferred for all HTML documents: <code>&lt;!DOCTYPE html&gt;</code>.</p>
 
-<p>(It&#8217;s recommended to use HTML, as <code>text/html</code>. Do not use XHTML. XHTML, as
+<p>(It&#8217;s 권장 to use HTML, as <code>text/html</code>. Do not use XHTML. XHTML, as
 <a href="https://hixie.ch/advocacy/xhtml"><code>application/xhtml+xml</code></a>, lacks both browser
 and infrastructure support and offers less room for optimization than HTML.)</p>
 
@@ -192,12 +150,12 @@ to test.
 learning about technical requirements and constraints, and that ensures proper
 HTML usage.</p>
 
-<pre><code class="language-html prettyprint badcode">&lt;!-- Not recommended --&gt;
+<pre><code class="language-html prettyprint badcode">&lt;!-- 권장하지않음 --&gt;
 &lt;title&gt;Test&lt;/title&gt;
 &lt;article&gt;This is only a test.
 </code></pre>
 
-<pre><code class="language-html prettyprint">&lt;!-- Recommended --&gt;
+<pre><code class="language-html prettyprint">&lt;!-- 권장 --&gt;
 &lt;!DOCTYPE html&gt;
 &lt;meta charset="utf-8"&gt;
 &lt;title&gt;Test&lt;/title&gt;
@@ -215,11 +173,11 @@ paragraphs, <code>a</code> elements for anchors, etc.</p>
 <p>Using HTML according to its purpose is important for accessibility, reuse, and
 code efficiency reasons.</p>
 
-<pre><code class="language-html prettyprint badcode">&lt;!-- Not recommended --&gt;
+<pre><code class="language-html prettyprint badcode">&lt;!-- 권장하지않음 --&gt;
 &lt;div onclick="goToRecommendations();"&gt;All recommendations&lt;/div&gt;
 </code></pre>
 
-<pre><code class="language-html prettyprint">&lt;!-- Recommended --&gt;
+<pre><code class="language-html prettyprint">&lt;!-- 권장 --&gt;
 &lt;a href="recommendations/"&gt;All recommendations&lt;/a&gt;
 </code></pre>
 
@@ -239,11 +197,11 @@ may have no way of understanding what video or audio contents are about either.<
 whose purpose is purely decorative which you cannot immediately use CSS for, use
 no alternative text, as in <code>alt=""</code>.)</p>
 
-<pre><code class="language-html prettyprint badcode">&lt;!-- Not recommended --&gt;
+<pre><code class="language-html prettyprint badcode">&lt;!-- 권장하지않음 --&gt;
 &lt;img src="spreadsheet.png"&gt;
 </code></pre>
 
-<pre><code class="language-html prettyprint">&lt;!-- Recommended --&gt;
+<pre><code class="language-html prettyprint">&lt;!-- 권장 --&gt;
 &lt;img src="spreadsheet.png" alt="Spreadsheet screenshot."&gt;
 </code></pre>
 
@@ -266,7 +224,7 @@ sheets and scripts as possible from documents and templates.</p>
 maintenance reasons. It is always more expensive to change HTML documents and
 templates than it is to update style sheets and scripts.</p>
 
-<pre><code class="language-html prettyprint badcode">&lt;!-- Not recommended --&gt;
+<pre><code class="language-html prettyprint badcode">&lt;!-- 권장하지않음 --&gt;
 &lt;!DOCTYPE html&gt;
 &lt;title&gt;HTML sucks&lt;/title&gt;
 &lt;link rel="stylesheet" href="base.css" media="screen"&gt;
@@ -279,7 +237,7 @@ templates than it is to update style sheets and scripts.</p>
   my website without doing everything all over again!&lt;/center&gt;
 </code></pre>
 
-<pre><code class="language-html prettyprint">&lt;!-- Recommended --&gt;
+<pre><code class="language-html prettyprint">&lt;!-- 권장 --&gt;
 &lt;!DOCTYPE html&gt;
 &lt;title&gt;My first CSS-only redesign&lt;/title&gt;
 &lt;link rel="stylesheet" href="default.css"&gt;
@@ -301,11 +259,11 @@ as well as among teams.</p>
 <p>The only exceptions apply to characters with special meaning in HTML (like <code>&lt;</code>
 and <code>&amp;</code>) as well as control or &#8220;invisible&#8221; characters (like no-break spaces).</p>
 
-<pre><code class="language-html prettyprint badcode">&lt;!-- Not recommended --&gt;
+<pre><code class="language-html prettyprint badcode">&lt;!-- 권장하지않음 --&gt;
 The currency symbol for the Euro is &amp;ldquo;&amp;eur;&amp;rdquo;.
 </code></pre>
 
-<pre><code class="language-html prettyprint">&lt;!-- Recommended --&gt;
+<pre><code class="language-html prettyprint">&lt;!-- 권장 --&gt;
 The currency symbol for the Euro is &#8220;&#8364;&#8221;.
 </code></pre>
 
@@ -322,7 +280,7 @@ as it&#8217;s significantly different from what web developers are typically tau
 For consistency and simplicity reasons it&#8217;s best served omitting all optional
 tags, not just a selection.)</p>
 
-<pre><code class="language-html prettyprint badcode">&lt;!-- Not recommended --&gt;
+<pre><code class="language-html prettyprint badcode">&lt;!-- 권장하지않음 --&gt;
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
   &lt;head&gt;
@@ -334,7 +292,7 @@ tags, not just a selection.)</p>
 &lt;/html&gt;
 </code></pre>
 
-<pre><code class="language-html prettyprint">&lt;!-- Recommended --&gt;
+<pre><code class="language-html prettyprint">&lt;!-- 권장 --&gt;
 &lt;!DOCTYPE html&gt;
 &lt;title&gt;Saving money, saving bytes&lt;/title&gt;
 &lt;p&gt;Qed.
@@ -352,21 +310,21 @@ tags, not just a selection.)</p>
 and <a href="https://html.spec.whatwg.org/multipage/scripting.html#attr-script-type"><code>text/javascript</code></a>
 as defaults. This can be safely done even for older browsers.</p>
 
-<pre><code class="language-html prettyprint badcode">&lt;!-- Not recommended --&gt;
+<pre><code class="language-html prettyprint badcode">&lt;!-- 권장하지않음 --&gt;
 &lt;link rel="stylesheet" href="https://www.google.com/css/maia.css"
     type="text/css"&gt;
 </code></pre>
 
-<pre><code class="language-html prettyprint">&lt;!-- Recommended --&gt;
+<pre><code class="language-html prettyprint">&lt;!-- 권장 --&gt;
 &lt;link rel="stylesheet" href="https://www.google.com/css/maia.css"&gt;
 </code></pre>
 
-<pre><code class="language-html prettyprint badcode">&lt;!-- Not recommended --&gt;
+<pre><code class="language-html prettyprint badcode">&lt;!-- 권장하지않음 --&gt;
 &lt;script src="https://www.google.com/js/gweb/analytics/autotrack.js"
     type="text/javascript"&gt;&lt;/script&gt;
 </code></pre>
 
-<pre><code class="language-html prettyprint">&lt;!-- Recommended --&gt;
+<pre><code class="language-html prettyprint">&lt;!-- 권장 --&gt;
 &lt;script src="https://www.google.com/js/gweb/analytics/autotrack.js"&gt;&lt;/script&gt;
 </code></pre>
 
@@ -448,11 +406,11 @@ additional spaces from the original line.</p>
 <p>Use double (<code>""</code>) rather than single quotation marks (<code>''</code>) around attribute
 values.</p>
 
-<pre><code class="language-html prettyprint badcode">&lt;!-- Not recommended --&gt;
+<pre><code class="language-html prettyprint badcode">&lt;!-- 권장하지않음 --&gt;
 &lt;a class='maia-button maia-button-secondary'&gt;Sign in&lt;/a&gt;
 </code></pre>
 
-<pre><code class="language-html prettyprint">&lt;!-- Recommended --&gt;
+<pre><code class="language-html prettyprint">&lt;!-- 권장 --&gt;
 &lt;a class="maia-button maia-button-secondary"&gt;Sign in&lt;/a&gt;
 </code></pre>
 
@@ -493,20 +451,20 @@ meaning different from their siblings. They are typically needed as &#8220;helpe
 <p>Using functional or generic names reduces the probability of unnecessary
 document or template changes.</p>
 
-<pre><code class="language-css prettyprint badcode">/* Not recommended: meaningless */
+<pre><code class="language-css prettyprint badcode">/* 권장하지않음: meaningless */
 #yee-1901 {}
 
-/* Not recommended: presentational */
+/* 권장하지않음: presentational */
 .button-green {}
 .clear {}
 </code></pre>
 
-<pre><code class="language-css prettyprint">/* Recommended: specific */
+<pre><code class="language-css prettyprint">/* 권장: specific */
 #gallery {}
 #login {}
 .video {}
 
-/* Recommended: generic */
+/* 권장: generic */
 .aux {}
 .alt {}
 </code></pre>
@@ -520,12 +478,12 @@ document or template changes.</p>
 <p>Using ID and class names this way contributes to acceptable levels of
 understandability and code efficiency.</p>
 
-<pre><code class="language-css prettyprint badcode">/* Not recommended */
+<pre><code class="language-css prettyprint badcode">/* 권장하지않음 */
 #navigation {}
 .atr {}
 </code></pre>
 
-<pre><code class="language-css prettyprint">/* Recommended */
+<pre><code class="language-css prettyprint">/* 권장 */
 #nav {}
 .author {}
 </code></pre>
@@ -539,12 +497,12 @@ conjunction with IDs or classes.</p>
 
 <p>Avoiding unnecessary ancestor selectors is useful for <a href="http://www.stevesouders.com/blog/2009/06/18/simplifying-css-selectors/">performance reasons</a>.</p>
 
-<pre><code class="language-css prettyprint badcode">/* Not recommended */
+<pre><code class="language-css prettyprint badcode">/* 권장하지않음 */
 ul#example {}
 div.error {}
 </code></pre>
 
-<pre><code class="language-css prettyprint">/* Recommended */
+<pre><code class="language-css prettyprint">/* 권장 */
 #example {}
 .error {}
 </code></pre>
@@ -559,7 +517,7 @@ where only one value is explicitly set.</p>
 
 <p>Using shorthand properties is useful for code efficiency and understandability.</p>
 
-<pre><code class="language-css prettyprint badcode">/* Not recommended */
+<pre><code class="language-css prettyprint badcode">/* 권장하지않음 */
 border-top-style: none;
 font-family: palatino, georgia, serif;
 font-size: 100%;
@@ -570,7 +528,7 @@ padding-right: 1em;
 padding-top: 0;
 </code></pre>
 
-<pre><code class="language-css prettyprint">/* Recommended */
+<pre><code class="language-css prettyprint">/* 권장 */
 border-top: 0;
 font: 100%/1.6 palatino, georgia, serif;
 padding: 0 1em 2em;
@@ -604,11 +562,11 @@ padding: 0;
 <p>For color values that permit it, 3 character hexadecimal notation is shorter and
 more succinct.</p>
 
-<pre><code class="language-css prettyprint badcode">/* Not recommended */
+<pre><code class="language-css prettyprint badcode">/* 권장하지않음 */
 color: #eebbcc;
 </code></pre>
 
-<pre><code class="language-css prettyprint">/* Recommended */
+<pre><code class="language-css prettyprint">/* 권장 */
 color: #ebc;
 </code></pre>
 
@@ -635,14 +593,14 @@ easier, for example in search and replace operations.</p>
 (including none at all) other than hyphens, in order to improve understanding
 and scannability.</p>
 
-<pre><code class="language-css prettyprint badcode">/* Not recommended: does not separate the words &#8220;demo&#8221; and &#8220;image&#8221; */
+<pre><code class="language-css prettyprint badcode">/* 권장하지않음: does not separate the words &#8220;demo&#8221; and &#8220;image&#8221; */
 .demoimage {}
 
-/* Not recommended: uses underscore instead of hyphen */
+/* 권장하지않음: uses underscore instead of hyphen */
 .error_status {}
 </code></pre>
 
-<pre><code class="language-css prettyprint">/* Recommended */
+<pre><code class="language-css prettyprint">/* 권장 */
 #video-id {}
 .ads-sample {}
 </code></pre>
@@ -709,14 +667,14 @@ improve understanding.</p>
 <p>End every declaration with a semicolon for consistency and extensibility
 reasons.</p>
 
-<pre><code class="language-css prettyprint badcode">/* Not recommended */
+<pre><code class="language-css prettyprint badcode">/* 권장하지않음 */
 .test {
   display: block;
   height: 100px
 }
 </code></pre>
 
-<pre><code class="language-css prettyprint">/* Recommended */
+<pre><code class="language-css prettyprint">/* 권장 */
 .test {
   display: block;
   height: 100px;
@@ -730,13 +688,13 @@ reasons.</p>
 <p>Always use a single space between property and value (but no space between
 property and colon) for consistency reasons.</p>
 
-<pre><code class="language-css prettyprint badcode">/* Not recommended */
+<pre><code class="language-css prettyprint badcode">/* 권장하지않음 */
 h3 {
   font-weight:bold;
 }
 </code></pre>
 
-<pre><code class="language-css prettyprint">/* Recommended */
+<pre><code class="language-css prettyprint">/* 권장 */
 h3 {
   font-weight: bold;
 }
@@ -752,19 +710,19 @@ begins the <a href="https://www.w3.org/TR/CSS21/syndata.html#rule-sets">declarat
 <p>The opening brace should be on the same line as the last selector in a given
 rule.</p>
 
-<pre><code class="language-css prettyprint badcode">/* Not recommended: missing space */
+<pre><code class="language-css prettyprint badcode">/* 권장하지않음: missing space */
 #video{
   margin-top: 1em;
 }
 
-/* Not recommended: unnecessary line break */
+/* 권장하지않음: unnecessary line break */
 #video
 {
   margin-top: 1em;
 }
 </code></pre>
 
-<pre><code class="language-css prettyprint">/* Recommended */
+<pre><code class="language-css prettyprint">/* 권장 */
 #video {
   margin-top: 1em;
 }
@@ -776,13 +734,13 @@ rule.</p>
 
 <p>Always start a new line for each selector and declaration.</p>
 
-<pre><code class="language-css prettyprint badcode">/* Not recommended */
+<pre><code class="language-css prettyprint badcode">/* 권장하지않음 */
 a:focus, a:active {
   position: relative; top: 1px;
 }
 </code></pre>
 
-<pre><code class="language-css prettyprint">/* Recommended */
+<pre><code class="language-css prettyprint">/* 권장 */
 h1,
 h2,
 h3 {
@@ -817,7 +775,7 @@ selectors and property values.</p>
 <p>Exception: If you do need to use the <code>@charset</code> rule, use double quotation
 marks&#8212;<a href="https://www.w3.org/TR/CSS21/syndata.html#charset">single quotation marks are not permitted</a>.</p>
 
-<pre><code class="language-css prettyprint badcode">/* Not recommended */
+<pre><code class="language-css prettyprint badcode">/* 권장하지않음 */
 @import url("https://www.google.com/css/maia.css");
 
 html {
@@ -825,7 +783,7 @@ html {
 }
 </code></pre>
 
-<pre><code class="language-css prettyprint">/* Recommended */
+<pre><code class="language-css prettyprint">/* 권장 */
 @import url(https://www.google.com/css/maia.css);
 
 html {
